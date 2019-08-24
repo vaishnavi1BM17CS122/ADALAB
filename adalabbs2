@@ -1,0 +1,45 @@
+#include <iostream>
+#include <stdio.h>
+#include <time.h>
+using namespace std;
+void swap(int *xp, int *yp)  
+{  
+    int temp = *xp;  
+    *xp = *yp;  
+    *yp = temp;  
+}  
+  
+void bubbleSort(int arr[], int n)  
+{  
+    int i, j;  
+    for (i = 0; i < n-1; i++)     
+    for (j = 0; j < n-i-1; j++)  
+        if (arr[j] >arr[j+1])  
+            swap(&arr[j], &arr[j+1]);  
+}  
+
+int main(int argc, char **argv)
+{ 
+	int n,k,i,arr[10];
+	clock_t start,end;
+	start=clock();
+	cout<<"enter the value of n"<<endl;
+	cin>>n;
+	cout<<"enter the array"<<endl;
+	for(i=0;i<n;i++)
+	  cin>>arr[i];
+	cout<<"enter value of k"<<endl;
+	cin>>k;
+	bubbleSort(arr,n);
+	cout<<"the element is "<<endl;
+	//for(i=0;i<k;i++)
+	//cout<<arr[i]<<endl;
+	//for(i=0;i<n;i++)
+	 //cout<<arr[i];
+	 cout<<arr[k-1];
+	 end=clock();
+	 double t=(double)(start-end)/double(CLOCKS_PER_SEC);
+	cout<<"time is"<<t;
+	return 0;
+}
+
